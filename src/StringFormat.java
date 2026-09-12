@@ -1,41 +1,40 @@
-import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class StringFormat {
 
-
     private static final int lineBreak = 84;
 
-    private static StringBuilder spaceFormatting(LinkedList<String> input) {
-        StringBuilder sb = new StringBuilder();
+    // Splits combos on Enter keystrokes, pads each line individualyto a multiple of lineBreak.
+    public static LinkedList<KeyCombo> padCombos(LinkedList<KeyCombo> combos) {
+        LinkedList<KeyCombo> result = new LinkedList<>();
+        LinkedList<KeyCombo> currentLine = new LinkedList<>();
 
-        for (String s : input) {
-            sb.append(s);
-            int diff = (lineBreak - (s.length() % lineBreak)) % lineBreak;
-            if (diff != 0) {
-                sb.append(" ".repeat(diff));
+        for (KeyCombo combo : combos) {
+            if (combo.keyCode() == KeyEvent.VK_ENTER) {
+                result.addAll(padLine(currentLine));
+                currentLine = new LinkedList<>();
+            } else {
+                currentLine.add(combo);
             }
         }
-        Log.debugInput(sb, "spaceFormatting");
-        return sb;
+
+
+        result.addAll(padLine(currentLine));
+
+        //Log.debugInput(result, "padCombos");
+        return result;
     }
-    private static int[] inputToRobot(StringBuilder spaceFormattedInput){
-        int[] inputMappedToRobot = new int[spaceFormattedInput.length()];
-        for (int i=0; i<spaceFormattedInput.length(); i++) {
-            inputMappedToRobot[i] = KeyEvent.getExtendedKeyCodeForChar(spaceFormattedInput.charAt(i));
+
+    private static LinkedList<KeyCombo> padLine(LinkedList<KeyCombo> line) {
+        LinkedList<KeyCombo> padded = new LinkedList<>(line);
+
+        int diff = (lineBreak - (padded.size() % lineBreak)) % lineBreak;
+        for (int i = 0; i < diff; i++) {
+            padded.add(new KeyCombo(KeyEvent.VK_SPACE, Collections.emptyList()));
         }
-        Log.debugInput(inputMappedToRobot, "inputToRobot");
-        return inputMappedToRobot;
+
+        return padded;
     }
-
-
-
-    public static int[] getInputToRobot(LinkedList<String> input) throws AWTException {
-        int[] inputMappedToRobot = inputToRobot(spaceFormatting(input));
-        Log.debugInput(inputMappedToRobot, "getInputToRobot");
-        return inputMappedToRobot;
-    }
-    
-
 }

@@ -4,47 +4,38 @@ import java.util.LinkedList;
 public class Controller {
 
     private final int linebreak = 84;
-    LinkedList input;
+    LinkedList<KeyCombo> input;
     View view;
     Robot robot;
 
     public Controller() throws AWTException {
         robot = new Robot();
-        input = new LinkedList();
+        //robot.setAutoDelay(1000);       // ms between each keystrokee- change if too fast
+        robot.setAutoWaitForIdle(true);
+        input = new LinkedList<>();
         view = new View(this);
     }
 
-
-
-
-    public void userSubmittedInput(LinkedList<String> input) throws AWTException {
-        this.input = input;
-        int[] arr = StringFormat.getInputToRobot(input);
-        writeToKeyboard(arr);
+    public void userSubmittedInput(LinkedList<String> userInput, LinkedList<KeyCombo> keyCombos, int delaySeconds) throws AWTException {
+        LinkedList<KeyCombo> padded = StringFormat.padCombos(keyCombos);
+        this.input = padded;
+        writeToKeyboard(padded, delaySeconds);
     }
 
-
-
-    private void writeToKeyboard(int[] input) throws AWTException {
+    private void writeToKeyboard(LinkedList<KeyCombo> combos, int delaySeconds) throws AWTException {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(delaySeconds * 1000L);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return;
         }
 
-        for (int i : input) {
-            robot.keyPress(i);
-            robot.keyRelease(i);
+        for (KeyCombo combo : combos) {
+            combo.replay(robot);
         }
     }
 
-
-
-
-    static void main() throws AWTException {
-        Controller controller = new Controller();
+    public static void main(String[] args) throws AWTException {
+        new Controller();
     }
-
-
 }
