@@ -51,6 +51,7 @@ public class View {
             //användarinstrk
 
             JTextArea instructionsArea = new JTextArea(UserInstruction.message);
+            instructionsArea.setEditable(false);
 
             instructionsArea.setLineWrap(true);
             instructionsArea.setWrapStyleWord(true);
@@ -80,8 +81,13 @@ public class View {
 
             JSpinner delaySpinner = new JSpinner(delayModel);
 
-            ((JSpinner.DefaultEditor) delaySpinner.getEditor()).getTextField().setColumns(3);
+            JSpinner.DefaultEditor delayEditor =
+                    (JSpinner.DefaultEditor) delaySpinner.getEditor();
 
+            delayEditor.getTextField().setColumns(3);
+            delayEditor.getTextField().setEditable(false);
+            delayEditor.getTextField().setFocusable(false);
+            
             delayPanel.add(delayLabel);
             delayPanel.add(delaySpinner);
 
