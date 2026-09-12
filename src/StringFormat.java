@@ -20,10 +20,9 @@ public class StringFormat {
             }
         }
 
+        // Don't pad the final line
+        result.addAll(currentLine);
 
-        result.addAll(padLine(currentLine));
-
-        //Log.debugInput(result, "padCombos");
         return result;
     }
 
