@@ -8,6 +8,8 @@ This is useful because **R.U.S.E. doesn't support copy/pasting into the chat**. 
 
 Just run the `.jar` on Windows.
 
+**N.B.** After you press submit, it simulates your keystrokes to write the message, so set the delay timer so you have enough time to swap applications. It will automatically start pressing those buttons after delay, which can have unintended consequences if you don't have a text field selected in time.
+
 ## Requirements
 
 - Windows
