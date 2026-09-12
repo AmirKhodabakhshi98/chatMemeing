@@ -17,7 +17,6 @@ public class View {
     private void menu() throws AWTException
     {
         SwingUtilities.invokeLater(() -> {
-
             JFrame frame = new JFrame("CHAT MEMEING");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(600, 400);
