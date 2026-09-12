@@ -1,5 +1,4 @@
 # R.U.S.E. Message Simulator
-
 A fun little prank app for **R.U.S.E.** that simulates other players sending messages in lobbies.
 
 The app takes a message as user input, automatically formats it to match how R.U.S.E.'s lobby chat handles line breaks, and then types it into the game with a small delay.
@@ -13,16 +12,14 @@ Just run the `.jar` on Windows.
 **N.B.#2** Since users own username is displayed at first message, before the fake ones, it's always obvious who started the chain; so besides a bit of fun there's no risk for actual impersonation.
 
 ## Demo
-https://github.com/user-attachments/assets/69418753-dbcc-4587-8fa3-91f5d1a5f91d
+https://github.com/user-attachments/assets/890292b9-d805-4cd5-ad69-740646135635
 
 
 ## Requirements
-
 - Windows
 - Java
 - R.U.S.E.
 
 
 ## Disclaimer
-
 This is an unofficial fan-made project and is not affiliated with anyone. Use at your own risk.
