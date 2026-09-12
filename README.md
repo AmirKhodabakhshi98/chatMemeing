@@ -1,0 +1,19 @@
+# R.U.S.E. Message Simulator
+
+A fun little prank app for **R.U.S.E.** that simulates other players sending messages in lobbies.
+
+The app takes a message as user input, automatically formats it to match how R.U.S.E.'s lobby chat handles line breaks, and then types it into the game with a small delay.
+
+This is useful because **R.U.S.E. doesn't support copy/pasting into the chat**. Normally, you'd have to manually count spaces and line breaks to make longer messages fit properly. This app handles that automatically and simulates the necessary keyboard presses for you.
+
+Just run the `.jar` on Windows.
+
+## Requirements
+
+- Windows
+- Java
+- R.U.S.E.
+
+## Disclaimer
+
+This is an unofficial fan-made project and is not affiliated with Ubisoft or R.U.S.E.
