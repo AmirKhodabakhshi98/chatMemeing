@@ -25,4 +25,4 @@ https://github.com/user-attachments/assets/69418753-dbcc-4587-8fa3-91f5d1a5f91d
 
 ## Disclaimer
 
-This is an unofficial fan-made project and is not affiliated with anyone.
+This is an unofficial fan-made project and is not affiliated with anyone. Use at your own risk.
