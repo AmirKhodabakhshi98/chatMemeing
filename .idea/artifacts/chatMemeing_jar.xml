@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="chatMemeing:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/chatMemeing_jar</output-path>
+    <root id="archive" name="chatMemeing.jar">
+      <element id="module-output" name="chatMemeing" />
+    </root>
+  </artifact>
+</component>
